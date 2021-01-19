@@ -15,8 +15,6 @@ def create_routes(api: Api):
     api.add_resource(LoginApi, '/user/login/')
 
     api.add_resource(UsersApi, '/users/')
-    # api.add_resource(UserApi, '/users/<user_id>')
 
     api.add_resource(CafeteriasCreationAPI, '/createcafeteria/')
     api.add_resource(CreateItemsAPI, '/createcafeteriaitems/')
-    # api.add_resource(CafeteriaCreationAPI, '/createcafeteria/<createcafeteria_id>')

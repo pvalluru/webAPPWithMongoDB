@@ -2,7 +2,8 @@
 from mongoengine import Document, StringField, IntField
 
 
-class Cafeterias(Document):
+
+class Cafe(Document):
     """
     Template for a mongoengine document, which represents a Cafereria Creation.
     :param cafeID: unique required 12 Digit number
@@ -13,23 +14,25 @@ class Cafeterias(Document):
     :param pincode: unique required 6 Digit number
     """
 
-    cafeID = IntField(required=True, unique=True, min_value=12)
+    cafeID = IntField(required=True, min_value=12)
     name = StringField()
     city = StringField()
     pincode = IntField(unique=False, min_value=6)
     address = StringField(max_length=240)
     starttime = StringField()
     endtime = StringField()
+    cafeItems = ListField()
 
     def save(self, *args, **kwargs):
         # Overwrite Document save method to generate password hash prior to saving
         try:
-            super(Cafeterias, self).save(*args, **kwargs)
+            super(Cafe, self).save(*args, **kwargs)
             return True
         except Exception as exc:
             return False
 
-class CafeteriaItems(Document):
+
+class CafeItems(Document):
     """
     Template for a mongoengine document, which represents a CafeteriaItems Creation.
     :param cafeID: unique required 12 Digit number
@@ -48,7 +51,7 @@ class CafeteriaItems(Document):
     def save(self, *args, **kwargs):
         # Overwrite Document save method to generate password hash prior to saving
         try:
-            super(CafeteriaItems, self).save(*args, **kwargs)
+            super(CafeItems, self).save(*args, **kwargs)
             return True
         except Exception as exc:
             return False
