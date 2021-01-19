@@ -28,3 +28,27 @@ class Cafeterias(Document):
             return True
         except Exception as exc:
             return False
+
+class CafeteriaItems(Document):
+    """
+    Template for a mongoengine document, which represents a CafeteriaItems Creation.
+    :param cafeID: unique required 12 Digit number
+    :param itemID: unique required 6 Digit number
+    :param Name: required string value
+    :param starttime : required string value
+    :param endtime : required string value
+    """
+
+    cafeID = IntField(required=True, min_value=12)
+    itemID = IntField(required=True, min_value=6)
+    name = StringField()
+    starttime = StringField()
+    endtime = StringField()
+
+    def save(self, *args, **kwargs):
+        # Overwrite Document save method to generate password hash prior to saving
+        try:
+            super(CafeteriaItems, self).save(*args, **kwargs)
+            return True
+        except Exception as exc:
+            return False

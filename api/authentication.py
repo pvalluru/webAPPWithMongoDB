@@ -7,6 +7,7 @@ from flask_jwt_extended import create_access_token, create_refresh_token
 # project resources
 from models.users import Users
 from api.errors import unauthorized, unique_check_route
+from api.configparser import getTokenExpairTime
 
 # external packages
 import datetime
@@ -26,7 +27,7 @@ class SignUpApi(Resource):
         post_user = Users(**data)
         status = post_user.save()
         if not status:
-            return unique_check_route()
+            return unique_check_route("email and phone number")
         output = {'id': str(post_user.id)}
         return jsonify({'result': output})
 
@@ -42,12 +43,16 @@ class LoginApi(Resource):
         :return: JSON object
         """
         data = request.get_json()
-        user = Users.objects.get(email=data.get('email'))
+        try:
+            user = Users.objects.get(email=data.get('email'))
+        except Exception as e:
+            return unauthorized()
+
         auth_success = user.check_pw_hash(data.get('password'))
         if not auth_success:
             return unauthorized()
         else:
-            expiry = datetime.timedelta(days=5)
+            expiry = datetime.timedelta(minutes=getTokenExpairTime())
             access_token = create_access_token(identity=str(user.id), expires_delta=expiry)
             refresh_token = create_refresh_token(identity=str(user.id))
             return jsonify({'result': {'access_token': access_token,

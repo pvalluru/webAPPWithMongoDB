@@ -13,9 +13,6 @@ from mongoengine import (Document,
 from flask_bcrypt import generate_password_hash, check_password_hash
 from api.errors import unauthorized, unique_check_route
 
-# project resources
-from models.meals import Meals
-
 # external packages
 import re
 

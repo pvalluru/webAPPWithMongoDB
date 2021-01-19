@@ -28,8 +28,8 @@ def invalid_route() -> Response:
     resp.status_code = 404
     return resp
 
-def unique_check_route() -> Response:
-    output = {"error": "email and phone number should be unique.",
+def unique_check_route(string) -> Response:
+    output = {"error": str(string)+" should be unique.",
                   "code": "USER_EXIST_EXCEPTION"
               }
     resp = jsonify({'result': output})
