@@ -21,7 +21,6 @@ class Cafe(Document):
     address = StringField(max_length=240)
     starttime = StringField()
     endtime = StringField()
-    cafeItems = ListField()
 
     def save(self, *args, **kwargs):
         # Overwrite Document save method to generate password hash prior to saving

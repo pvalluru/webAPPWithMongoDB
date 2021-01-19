@@ -4,7 +4,7 @@ from flask_restful import Resource
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 # project resources
-from models.cafeterias import Cafeterias, CafeteriaItems, CafeItems, Cafe
+from models.cafeterias import CafeItems, Cafe
 from api.errors import unique_check_route, unauthorized, forbidden
 
 # datetime packages
