@@ -109,6 +109,21 @@ A couple of notes about the coding of these classes:
   
   * The LoginApi checks the given password to see if it matches and then creates web tokens if successful. These tokens allow a user to continue using the API without the need to login for each request. A refresh token is generated, but not used in this tutorial. This would allow a user to continue their session after the token expires.
 
+### Note:
+   Make sure mongoDB is running and change the login details, DB name, authentication_source and JWT_SECRET_KEY in default_config in app.py file.
+   
+        # default mongodb configuration
+        default_config = {
+                'MONGODB_SETTINGS': {
+                            'db': 'test_db',
+                            'host': 'localhost',
+                            'port': 27017,
+                            'username': 'admin',
+                            'password': 'password',
+                            'authentication_source': 'admin'
+                            },
+                'JWT_SECRET_KEY': 'changeThisKeyFirst'}
+
 ### Run app.py
 
   web application will be hosted on localhost
