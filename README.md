@@ -128,4 +128,5 @@ A couple of notes about the coding of these classes:
 
   web application will be hosted on localhost
 
+### Postman Collection is attached available in project folder.
   
