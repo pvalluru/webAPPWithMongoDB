@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "e2002dc4-3b06-46e7-987e-dae363ae03b3",
+		"name": "user-management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create-User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"email\": \"abc@gmail.com\",\r\n \"password\": \"hunterabcd\",\r\n \"access\": {\r\n  \"admin\": \"True\"\r\n },\r\n \"name\": \"testname3\",\r\n \"phone\": \"123-456-5432\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/authentication/signup/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"authentication",
+						"signup",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User-login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"email\": \"ccd2@gmail.com\",\r\n \"password\": \"ccdpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/user/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-All-Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTA5OTcwNjgsIm5iZiI6MTYxMDk5NzA2OCwianRpIjoiMDBiNDNhNDgtNzg5YS00N2RiLWI3YzQtOGZlOWY4MzQxMDc4IiwiZXhwIjoxNjExNDI5MDY4LCJpZGVudGl0eSI6IjYwMDVkZDE1NmEzYjFhOTFmNDcyZjllZCIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.9qF9jm_95vfyjzqvnGbLQvEarE9qJ-NeQE68ThyhpbU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/users/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create-Cafeteria",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTEwNDA1OTYsIm5iZiI6MTYxMTA0MDU5NiwianRpIjoiMmU3OGRjNDEtOWVkOC00ZWMwLWFkZTEtMTUwNjc4OTQ5NjgwIiwiZXhwIjoxNjExMDQ2NTk2LCJpZGVudGl0eSI6IjYwMDY4NzRiMjc5OWMwYWE2MGM3Y2JhNCIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.YyM_OyYN173CYNVnLylJZ1X96ue6tFwJMKPMJK3Z23c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cafeID\": 112233445566,\r\n    \"name\": \"MG\",\r\n    \"city\": \"Kadapa\",\r\n    \"starttime\": \"10:00 AM\",\r\n    \"endtime\": \"11:00 PM\",\r\n    \"pincode\": 516002,\r\n    \"address\": \"AP, IND\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/createcafeteria/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"createcafeteria",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-All-Cafeteria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create-Cafeteria-Items",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTA5OTgxNDEsIm5iZiI6MTYxMDk5ODE0MSwianRpIjoiZjI4YmU3ZGYtY2Q2ZS00ZWExLTkyMDUtMGUxZmRhMGE0ZDU3IiwiZXhwIjoxNjExNDMwMTQxLCJpZGVudGl0eSI6IjYwMDVlMTY3YTA3OGRmNWU4NDgxNzUzYyIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.pbSqoIH-HWxsH_vbwVrW-lBbzMXt0PP6LdHPyQB5JSo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"itemID\": 123459,\r\n    \"cafeID\": 123456789018,\r\n    \"name\": \"CCD5\",\r\n    \"starttime\": \"10:00 AM\",\r\n    \"endtime\": \"7:00 PM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/createitems/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"createitems",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-Cafeteria-items",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTA5OTgxNDEsIm5iZiI6MTYxMDk5ODE0MSwianRpIjoiZjI4YmU3ZGYtY2Q2ZS00ZWExLTkyMDUtMGUxZmRhMGE0ZDU3IiwiZXhwIjoxNjExNDMwMTQxLCJpZGVudGl0eSI6IjYwMDVlMTY3YTA3OGRmNWU4NDgxNzUzYyIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.pbSqoIH-HWxsH_vbwVrW-lBbzMXt0PP6LdHPyQB5JSo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/createitems/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"createitems",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
